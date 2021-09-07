@@ -1,11 +1,21 @@
-import express from 'express'
-import helmet from 'helmet'
+const express = require("express")
+require('dotenv').config()
+const cors = require("cors")
 
-import UserRoutes from "./routes/user.js"
+const helmet = require("helmet")
+
+const userRoutes = require('./app/routes/user')
+const roleRoutes = require('./app/routes/role')
 
 const app = express()
 
-app.use(helmet());
+app.use(helmet())
+
+app.use(cors({
+  origin: "http://localhost:8081"
+}))
+
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,8 +26,17 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 
-app.use('/api/auth', UserRoutes)
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to groupomania application." })
+})
 
-app.listen(3000, () =>
-  console.log('REST API server ready at: http://localhost:3000'),
-)
+app.use('/api/auth', userRoutes)
+
+app.use('/api/test', roleRoutes)
+
+// set port, listen for requests
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`)
+})
