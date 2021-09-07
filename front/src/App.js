@@ -99,12 +99,12 @@ class App extends Component {
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <Link to={"/profile"} className="nav-link">
-                    <h2><i class="bi bi-person-fill"></i></h2>
+                    <h2><i className="bi bi-person-fill"></i></h2>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <a href="/login" className="nav-link" onClick={this.logOut}>
-                    <h2><i class="bi bi-power"></i></h2>
+                    <h2><i className="bi bi-power"></i></h2>
                   </a>
                 </li>
               </div>
@@ -112,13 +112,13 @@ class App extends Component {
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <Link to={"/login"} className="nav-link">
-                    <h2><i class="bi bi-person"></i></h2>
+                    <h2><i className="bi bi-person"></i></h2>
                   </Link>
                 </li>
 
                 <li className="nav-item">
                   <Link to={"/register"} className="nav-link">
-                    <h2><i class="bi bi-person-plus-fill"></i></h2>
+                    <h2><i className="bi bi-person-plus-fill"></i></h2>
                   </Link>
                 </li>
               </div>

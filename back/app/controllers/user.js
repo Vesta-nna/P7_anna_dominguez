@@ -26,19 +26,19 @@ exports.signup = async (req, res) => {
 
 // Log user and create Token
 exports.login = async (req, res) => {
-  console.log(req.body)
   const user = await prisma.user.findUnique({
     where: {
       email: req.body.email,
     },
   }).catch(err => {
     res.status(500).send({ message: err.message })
+  }).finally(async () => {
+    await prisma.$disconnect()
   })
-  console.log(user)
-  if (!user) {
+  console.log("user", user)
+  if (user == null) {
     res.status(404).send({ message: "User Not found." })
   }
-  console.log(user.password, req.body.password)
   const passwordIsValid = await bcrypt.compare(req.body.password, user.password)
   if (!passwordIsValid) {
     return res.status(401).send({

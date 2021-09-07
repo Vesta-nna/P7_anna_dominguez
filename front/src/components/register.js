@@ -106,7 +106,7 @@ class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label class="visually-hidden" for="inlineFormInputEmail">Email</label>
+                  <label className="visually-hidden" htmlFor="inlineFormInputEmail">Email</label>
                   <Input
                     type="email"
                     className="form-control text-white border-secondary"
@@ -121,7 +121,7 @@ class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label class="visually-hidden" for="inlineFormInputPassword">Mot de passe</label>
+                  <label className="visually-hidden" htmlFor="inlineFormInputPassword">Mot de passe</label>
                   <Input
                     type="password"
                     className="form-control text-white border-secondary"
