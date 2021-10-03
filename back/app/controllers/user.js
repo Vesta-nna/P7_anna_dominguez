@@ -13,15 +13,20 @@ exports.signup = async (req, res) => {
       password: await bcrypt.hash(req.body.password, 8).catch(err => {
         res.status(500).send({ message: err.message })
       }),
-      role: req.body.role
+      profile: {
+        create: {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName
+        }
+      }
     },
   }).catch(err => {
-    res.status(500).send({ message: err.message })
+    return res.status(500).send({ message: err.message })
   }).finally(async () => {
     await prisma.$disconnect()
   })
   console.log(user)
-  res.send({ message: "User was registered successfully!" })
+  return res.send({ message: "User was registered successfully!" })
 }
 
 // Log user and create Token
@@ -31,13 +36,13 @@ exports.login = async (req, res) => {
       email: req.body.email,
     },
   }).catch(err => {
-    res.status(500).send({ message: err.message })
+    return res.status(500).send({ message: err.message })
   }).finally(async () => {
     await prisma.$disconnect()
   })
   console.log("user", user)
-  if (user == null) {
-    res.status(404).send({ message: "User Not found." })
+  if (user === null) {
+    return res.status(404).send({ message: "User Not found." })
   }
   const passwordIsValid = await bcrypt.compare(req.body.password, user.password)
   if (!passwordIsValid) {
@@ -48,7 +53,7 @@ exports.login = async (req, res) => {
   }
 
   const token = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN, {expiresIn: 86400})
-  res.status(200).send({
+  return res.status(200).send({
     id: user.id,
     email: user.email,
     role: user.role,

@@ -11,22 +11,23 @@ generator client {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
+  id        Int         @id @default(autoincrement())
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  title     String      @db.VarChar(255)
   content   String?
-  published Boolean  @default(false)
-  user      User     @relation(fields: [authorId], references: [id])
+  published Boolean     @default(false)
+  user      User        @relation(fields: [authorId], references: [id])
   authorId  Int
 }
 
 model Profile {
-  id      Int       @id @default(autoincrement())
-  name    String?
-  bio     String?
-  user    User      @relation(fields: [userId], references: [id])
-  userId  Int       @unique
+  id            Int       @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  bio           String?
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int       @unique
 }
 
 model User {
@@ -41,5 +42,4 @@ model User {
 enum Role {
   ADMIN
   USER
-  MODERATOR
 }

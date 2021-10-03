@@ -12,6 +12,12 @@ async function main() {
         res.status(500).send({ message: err.message })
       }),
       role: "ADMIN",
+      profile: {
+        create: {
+          firstName: 'admin',
+          lastName: 'admin'
+        }
+      },
       posts: {
         create: {
           title: 'Check out Prisma with Next.js',
@@ -30,7 +36,12 @@ async function main() {
       password: await bcrypt.hash('moderator', 8).catch(err => {
         res.status(500).send({ message: err.message })
       }),
-      role: "MODERATOR",
+      profile: {
+        create: {
+          firstName: 'user1',
+          lastName: 'user1'
+        }
+      },
       posts: {
         create: [
           {
@@ -57,6 +68,12 @@ async function main() {
         res.status(500).send({ message: err.message })
       }),
       role: "USER",
+      profile: {
+        create: {
+          firstName: 'user',
+          lastName: 'user'
+        }
+      },
     },
   })
   console.log({ admin, moderator, user })

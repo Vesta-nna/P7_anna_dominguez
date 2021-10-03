@@ -1,0 +1,39 @@
+body {
+  font-size: 16px !important;
+  /* height: 100% !important;
+  width: 100%; */
+}
+
+#root, #page {
+  height: 100% !important;
+  width: 100%;
+}
+
+#page {
+  display: grid;
+  background-color: #F0F0F0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+.container {
+  margin: 5em 0 !important;
+}
+
+.content {
+  padding: 3em !important;
+}
+
+.content h2 {
+  padding-bottom: 0.5em;
+}
+
+.extra.content {
+  padding: 1em !important
+}
+
+.footer {
+  bottom: 0 !important;
+}
