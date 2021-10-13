@@ -25,7 +25,7 @@ Si vous voulez voir votre base de données évoluer en direct sur une page inter
 ## La base de données
 Les tables suivantes ont maintenant été crées:
 
-### User:
+### User
 Champ | Type
 ----- | ----
 id | int
