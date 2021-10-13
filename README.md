@@ -17,6 +17,6 @@ Vous pouvez ensuite installer `nodemon` dont nous aurons besoin pour lancer le b
 `npm install -g nodemon`
 
 ## Lancer le projet
-Merci de regarder les Readme du [back](https://github.com/Vesta-nna/P7_anna_dominguez/back/README.md) ainsi que celui du [front](https://github.com/Vesta-nna/P7_anna_dominguez/front/Readme.md) pour connaître l'utilisation du projet
+Merci de regarder les Readme du [back](https://github.com/Vesta-nna/P7_anna_dominguez/blob/main/back/README.md) ainsi que celui du [front](https://github.com/Vesta-nna/P7_anna_dominguez/blob/main]/front/Readme.md) pour connaître l'utilisation du projet
 ## Architecture générale
 L’application web sera composée de 4 pages :
