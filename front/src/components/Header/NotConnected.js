@@ -13,12 +13,12 @@ return (
 
       <div className="right menu">
         <div className="item">
-          <Link href="/login" className="ui inverted button">
+          <Link href="/login" className="ui button">
             <i className="user outline icon"></i>Se connecter
           </Link>
         </div>
           <div className="item">
-          <Link href="/register" className="ui inverted button">
+          <Link href="/register" className="ui button">
             <i className="user plus icon"></i>S'enregister
           </Link>
         </div>

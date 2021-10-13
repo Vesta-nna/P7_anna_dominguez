@@ -15,12 +15,7 @@ const Register = () => {
     if (inputError(firstName, lastName, password, email)){
       return
     }
-    if (!validateEmail(email)) {
-    return
-    }
-    if (!validatePassword(password)) {
-      return
-    }
+
     axios.post('http://localhost:8080/api/auth/signup',
       {
         firstName,

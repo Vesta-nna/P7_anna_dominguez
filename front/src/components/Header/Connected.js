@@ -15,7 +15,7 @@ const Connected = ({ disconnectUser }) => {
       </Link>
       <div className="right menu">
         <div onClick={() => disconnectUser()} className="item">
-          <a href="/" className="ui inverted button">
+          <a href="/" className="ui button">
             <i className="power icon"></i> Se déconnecter
           </a>
         </div>

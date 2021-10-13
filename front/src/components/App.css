@@ -11,9 +11,13 @@ body {
   display: grid;
 }
 
+.menu .item a {
+  background-color: rgb(209, 81, 90) !important;
+  color: white !important;
+}
+
 .menu .item a:hover {
-  background-color: white !important;
-  color: rgb(9, 32,67) !important;
+  background-color: rgb(206, 59, 69) !important;
 }
 
 h2 {
