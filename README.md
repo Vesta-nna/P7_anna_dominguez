@@ -28,6 +28,6 @@ Si l'utilateur n'est pas encore connecté il pourra:
 * Accéder à la page d'accueil présentant un post de Groupomania explicant comment fonctionne l'application
 
 Si l'utilisateur est connecté il pourra: 
-* Accéder à la page d'accueil où sont présentés tous les posts de ses collègues dans l'ordre chronologique descendant. Il peut également supprimer ses propres posts. Si l'utilsateur est administrateur il peut supprimer les posts de tous les utilsateur pour modérer le forum
+* Accéder à la page d'accueil où sont présentés tous les posts de ses collègues dans l'ordre chronologique descendant. Il peut également supprimer ses propres posts. Si l'utilsateur est administrateur il peut supprimer les posts de tous les utilsateurs pour modérer le forum
 * Accéder à sa page de profil et modifier ses données
 * Se déconnecter
