@@ -1,6 +1,6 @@
 # Back-end
 
-Veuillez vous assurer que PostgreSQL est installé et lancé. Créez une table puis veuillez créer un fichier `.env` à la racine du dossier back en renseignant les informations demandées dans `.env.example`.
+Veuillez vous assurer que PostgreSQL est installé et lancé. Créez une base de données puis veuillez créer un fichier `.env` à la racine du dossier back en renseignant les informations demandées dans `.env.example`.
 
 
 
@@ -21,3 +21,16 @@ Veuillez lancer les commandes suivantes:
 Si vous voulez voir votre base de données évoluer en direct sur une page internet:
 
 `npx prisma studio`
+
+
+### Les tables
+Les tables suivantes ont maintenant été crées:
+
+User:
+Champ | Type
+----- | ----
+id | int
+email | string
+password | string
+
+
