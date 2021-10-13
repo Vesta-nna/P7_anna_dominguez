@@ -1,1 +1,1 @@
-
+Dans ce projet nous avons utilisé [NodeJS](https://nodejs.org/en/), [ReactJS](https://fr.reactjs.org), [Prisma](https://www.prisma.io), et [PostgreSQL](https://www.postgresql.org), [axios](https://axios-http.com/docs/example) et [Semantic UI](https://semantic-ui.com) 
