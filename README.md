@@ -1,6 +1,6 @@
 # P7_anna_dominguez -- Forum interne Groupomania
 
-##Installation
+## Installation
 Pour lancer ce projet, merci d'installer `node` et `npm` en entrant la commande suivante dans un shell:
 
 `brew update`
