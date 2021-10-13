@@ -1,5 +1,7 @@
 # Back-end
 
+Dans cette partie du projet nous avons utilisé [NodeJS](https://nodejs.org/en/), [Prisma](https://www.prisma.io), [PostgreSQL](https://www.postgresql.org) et [axios](https://axios-http.com/docs/example)
+
 ## Installation
 Veuillez vous assurer que PostgreSQL est installé et lancé. Créez une base de données puis veuillez créer un fichier `.env` à la racine du dossier back en renseignant les informations demandées dans `.env.example`.
 
