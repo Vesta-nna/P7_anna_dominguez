@@ -9,16 +9,20 @@ Pour lancer la partie front il faudra lancer la commande: `npm start` depuis le 
 ## Contenu
 
 ### Page d'acceuil
-![screencapture-localhost-3000-2021-10-13-14_54_44](https://user-images.githubusercontent.com/8012855/137137042-a9d6cbd5-7f95-41b8-a131-3f7e13c1788b.png)
+![screencapture-localhost-3000-2021-10-14-01_51_44](https://user-images.githubusercontent.com/8012855/137228248-f32bd71e-0ee9-450c-b3ff-e76d86bd05dd.png)
+
 
 ### Créer un nouveau compte
-![screencapture-localhost-3000-register-2021-10-13-14_58_23](https://user-images.githubusercontent.com/8012855/137137233-b6a69204-ff17-4096-9623-9d67efe9c089.png)
+![screencapture-localhost-3000-register-2021-10-14-01_52_01](https://user-images.githubusercontent.com/8012855/137228259-59ec1d94-ec93-4d89-b9d8-6576d0e8c575.png)
+
 
 ### Se connecter
-![screencapture-localhost-3000-register-2021-10-13-14_58_23](https://user-images.githubusercontent.com/8012855/137137385-a32719a0-0c69-4028-8484-3d3ce0228f21.png)
+![screencapture-localhost-3000-login-2021-10-14-01_53_05](https://user-images.githubusercontent.com/8012855/137228286-4b96385b-8ad0-4bf4-b37b-a21927d6cc9a.png)
+
 
 ### Page de profile
-![screencapture-localhost-3000-profile-2021-10-13-15_00_12](https://user-images.githubusercontent.com/8012855/137137515-4c0c5546-f940-44ec-90fc-9bdd75610d3a.png)
+![screencapture-localhost-3000-profile-2021-10-14-01_49_51](https://user-images.githubusercontent.com/8012855/137228301-5c6c97a2-e70f-4625-84be-de90bce40c56.png)
+
 
 ### Fil d'actualité
-![screencapture-localhost-3000-2021-10-13-15_00_46](https://user-images.githubusercontent.com/8012855/137137581-2206f8a8-52be-48dd-88f5-af3829a269ab.png)
+![screencapture-localhost-3000-2021-10-14-01_49_35](https://user-images.githubusercontent.com/8012855/137228307-9de8e72e-6640-47e9-8cb6-0251e774b292.png)
