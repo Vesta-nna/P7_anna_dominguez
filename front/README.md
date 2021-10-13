@@ -20,5 +20,5 @@ Pour lancer la partie front il faudra lancer la commande: `npm start` depuis le 
 ### Page de profile
 ![screencapture-localhost-3000-profile-2021-10-13-15_00_12](https://user-images.githubusercontent.com/8012855/137137515-4c0c5546-f940-44ec-90fc-9bdd75610d3a.png)
 
-### Feed d'actualité
+### Fil d'actualité
 ![screencapture-localhost-3000-2021-10-13-15_00_46](https://user-images.githubusercontent.com/8012855/137137581-2206f8a8-52be-48dd-88f5-af3829a269ab.png)
