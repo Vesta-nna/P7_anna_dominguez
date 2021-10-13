@@ -1,6 +1,6 @@
 # P7_anna_dominguez -- Forum interne Groupomania
 
-Dans ce projet nous avons utilisé [NodeJS](https://nodejs.org/en/), [ReactJS](https://fr.reactjs.org), [Prisma](https://www.prisma.io), et [PostgreSQL](https://www.postgresql.org), [axios](https://axios-http.com/docs/example) et [Semantic UI](https://semantic-ui.com) 
+Dans ce projet nous avons utilisé [NodeJS](https://nodejs.org/en/), [ReactJS](https://fr.reactjs.org), [Prisma](https://www.prisma.io), [PostgreSQL](https://www.postgresql.org), [axios](https://axios-http.com/docs/example) et [Semantic UI](https://semantic-ui.com) 
 
 ## Installation
 Pour lancer ce projet, merci d'installer `node` et `npm` en entrant la commande suivante dans un shell:
