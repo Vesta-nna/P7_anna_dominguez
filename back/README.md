@@ -57,3 +57,6 @@ authorId | Int
 
 Un post est relié à un utilisateur
 
+
+## Lancer le backend
+Pour lancer le backend il faut lancer la commande: `nodemon index.js`
