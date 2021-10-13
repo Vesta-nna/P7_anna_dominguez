@@ -5,8 +5,14 @@ const express = require('express')
 
 const router = express.Router()
 
-router.get("/:id", profileController.getProfile)
+router.get("/:id", [auth.verifyToken], profileController.getProfile)
 
-router.post("/:id", [auth.verifyToken], profileController.updateProfile)
+router.post("/infos/:id", [auth.verifyToken], profileController.updateProfile)
+
+router.post("/email/:id", [auth.verifyToken], profileController.updateEmail)
+
+router.post("/pwd/:id", [auth.verifyToken], profileController.updatePassword)
+
+router.delete("/:id", [auth.verifyToken], profileController.deleteUserCascade)
 
 module.exports = router

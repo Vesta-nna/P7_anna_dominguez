@@ -13,6 +13,7 @@ exports.signup = async (req, res) => {
       password: await bcrypt.hash(req.body.password, 8).catch(err => {
         res.status(500).send({ message: err.message })
       }),
+      role: 'USER',
       profile: {
         create: {
           firstName: req.body.firstName,
@@ -26,7 +27,7 @@ exports.signup = async (req, res) => {
     await prisma.$disconnect()
   })
   console.log(user)
-  return res.send({ message: "User was registered successfully!" })
+  return res.send({ message: "Le compte a bien été créé" })
 }
 
 // Log user and create Token
@@ -42,13 +43,13 @@ exports.login = async (req, res) => {
   })
   console.log("user", user)
   if (user === null) {
-    return res.status(404).send({ message: "User Not found." })
+    return res.status(404).send({ message: "L'utilisateur n'a pas été trouvé" })
   }
   const passwordIsValid = await bcrypt.compare(req.body.password, user.password)
   if (!passwordIsValid) {
     return res.status(401).send({
       accessToken: null,
-      message: "Invalid Password!"
+      message: "Le mot de passe n'existe pas"
     });
   }
 

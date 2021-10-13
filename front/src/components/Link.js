@@ -18,6 +18,7 @@ const Link = ({ href, className, children }) => {
       onClick={onClick}
       href={href}
       className={className}
+      style={{color: 'white'}}
     >
       {children}
     </a>

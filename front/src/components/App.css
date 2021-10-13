@@ -1,7 +1,5 @@
 body {
   font-size: 16px !important;
-  /* height: 100% !important;
-  width: 100%; */
 }
 
 #root, #page {
@@ -11,7 +9,11 @@ body {
 
 #page {
   display: grid;
-  background-color: #F0F0F0;
+}
+
+.menu .item a:hover {
+  background-color: white !important;
+  color: rgb(9, 32,67) !important;
 }
 
 h2 {
@@ -19,19 +21,7 @@ h2 {
 }
 
 .container {
-  margin: 5em 0 !important;
-}
-
-.content {
-  padding: 3em !important;
-}
-
-.content h2 {
-  padding-bottom: 0.5em;
-}
-
-.extra.content {
-  padding: 1em !important
+  margin: 3em 0 !important;
 }
 
 .footer {

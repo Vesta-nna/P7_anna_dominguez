@@ -1,39 +1,8 @@
 import React, { useState } from 'react'
+import inputError from './Login/LoginErrors'
 import axios from 'axios'
+import { resetInputs, formatErrorMessage } from '../../tools'
 
-const resetErrorMessages = () => {
-  document.getElementById('globalError').innerHTML = ''
-  document.getElementById('passwordError').innerHTML = ''
-  document.getElementById('emailError').innerHTML = ''
-}
-
-const formatInputEmptyError = (inputName) => `<div class="ui negative message">
-        <div class="header">Champ vide</div>
-        <p>Veuillez renseigner ${inputName} que vous avez utiliser lors de votre inscription</p>
-      </div>`
-
-const checkError = (email, password) => {
-  if (email.length === 0 || password.length === 0){
-    if (email.length === 0) {
-      document.getElementById('emailError').innerHTML = formatInputEmptyError('l\'email')
-    }
-    if (password.length === 0) {
-      document.getElementById('passwordError').innerHTML = formatInputEmptyError('le mot de passe')
-    }
-    document.getElementById('globalError').innerHTML = `<div class="ui negative message">
-      <div class="header">Tous les champs doivent être remplis pour pouvoir se connecter</div>
-    </div>`
-    return 1
-  }
-}
-
-const handleError = (errorStatus) => {
-  if (errorStatus === 404) {
-    document.getElementById('globalError').innerHTML = `<div class="ui negative message"><div class="header">Cet email n'a pas été trouvé, veuillez réessayer!</div></div>`
-  } else if (errorStatus === 401) {
-    document.getElementById('globalError').innerHTML = `<div class="ui negative message"><div class="header">Le mot de passe erroné, veuillez réessayer!</div></div>`
-  }
-}
 
 const Login = ({ logUser }) => {
   const [email, setEmail] = useState('')
@@ -41,8 +10,8 @@ const Login = ({ logUser }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault()
-    resetErrorMessages()
-    if (checkError(email, password)) {
+    resetInputs(['emailError', 'passwordError', 'loginFormError'])
+    if (inputError(email, password)) {
       return
     }
     axios.post('http://localhost:8080/api/auth/login',
@@ -50,11 +19,23 @@ const Login = ({ logUser }) => {
         email, password
       })
       .then(res => {
-        console.log(res)
-        logUser([res.data.id, res.data.accessToken])
+        logUser({id: res.data.id, role: res.data.role, accessToken: res.data.accessToken})
         window.location = 'http://localhost:3000/'
       }).catch(err => {
-        handleError(err.response.status)
+        if (err && err.response) {
+          const {status} = err.response
+          if (status === 404) {
+            formatErrorMessage({
+              inputName: 'loginFormError',
+              header: "Cet email n'a pas été trouvé, veuillez réessayer!"
+            })
+          } else if (status === 401) {
+            formatErrorMessage({
+              inputName: 'loginFormError',
+              header: "Le mot de passe erroné, veuillez réessayer!"
+            })
+          }
+        }
       })
   }
 
@@ -70,18 +51,15 @@ const Login = ({ logUser }) => {
         <div className="field">
           <label>Email</label>
           <input value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" type="email" />
-          <div id="emailError">
-          </div>
+          <div id="emailError"></div>
         </div>
         <div className="field">
           <label>Mot de passe</label>
           <input value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Mot de passe" type="password" />
-          <div id="passwordError">
-          </div>
+          <div id="passwordError"></div>
         </div>
-        <div id="globalError">
-        </div>
-        <div onClick={onSubmit} className="ui blue submit button">Submit</div>
+        <div id="loginFormError"></div>
+        <div onClick={onSubmit} className="ui teal submit button">Submit</div>
       </form>
     </div>
   )

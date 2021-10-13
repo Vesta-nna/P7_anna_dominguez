@@ -14,15 +14,13 @@ async function main() {
       role: "ADMIN",
       profile: {
         create: {
-          firstName: 'admin',
-          lastName: 'admin'
+          firstName: 'Anna',
+          lastName: 'Dominguez'
         }
       },
       posts: {
         create: {
-          title: 'Check out Prisma with Next.js',
-          content: 'https://www.prisma.io/nextjs',
-          published: true,
+          content: `Epictète : “N’attends pas que les événements arrivent comme tu le souhaites ; décide de vouloir ce qui arrive et tu seras heureux” (Le Manuel)`,
         },
       },
     },
@@ -38,21 +36,18 @@ async function main() {
       }),
       profile: {
         create: {
-          firstName: 'user1',
-          lastName: 'user1'
+          firstName: 'Arthur',
+          lastName: 'Schopenhauer',
+          bio: "Sartre: “L'homme est condamné à être libre”"
         }
       },
       posts: {
         create: [
           {
-            title: 'Follow Prisma on Twitter',
-            content: 'https://twitter.com/prisma',
-            published: true,
+            content: `Schopenhauer : “L'homme est un animal métaphysique” (Le Monde comme volonté et comme représentation)`,
           },
           {
-            title: 'Follow Nexus on Twitter',
-            content: 'https://twitter.com/nexusgql',
-            published: true,
+            content: `Schopenhauer : “La vie oscille, tel un pendule, de l'ennui à la souffrance” (Le Monde comme volonté et comme représentation)`,
           },
         ],
       },
@@ -63,15 +58,16 @@ async function main() {
     where: { email: 'user@gmail.com' },
     update: {},
     create: {
-      email: 'user@gmail.com',
+      email: 'simone@gmail.com',
       password: await bcrypt.hash('user', 8).catch(err => {
         res.status(500).send({ message: err.message })
       }),
       role: "USER",
       profile: {
         create: {
-          firstName: 'user',
-          lastName: 'user'
+          firstName: 'John',
+          lastName: 'Locke',
+          bio: 'Locke: “La connaissance de l\'homme ne peut pas s\'étendre au-delà de son expérience propre”'
         }
       },
     },

@@ -4,7 +4,7 @@ const express = require('express')
 
 const router = express.Router()
 
-router.post("/signup", [verifySignUp.checkEmail, verifySignUp.checkRolesExisted], userController.signup)
+router.post("/signup", [verifySignUp.checkEmail], userController.signup)
 
 router.post("/login", userController.login)
 

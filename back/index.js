@@ -6,6 +6,7 @@ const helmet = require("helmet")
 const userRoutes = require('./app/routes/user')
 const roleRoutes = require('./app/routes/roles')
 const profileRoutes = require('./app/routes/profile')
+const feedRoutes = require('./app/routes/feed')
 
 const app = express()
 
@@ -15,23 +16,20 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization, X-Access-Token');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 })
 
 app.use(express.json())
 
-// simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Welcome to groupomania application." })
-// })
-
 app.use('/api/auth', userRoutes)
 
 app.use('/api/test', roleRoutes)
 
 app.use('/api/profile', profileRoutes)
+
+app.use('/api/feed/', feedRoutes)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

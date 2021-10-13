@@ -1,37 +1,7 @@
 import React, { useState } from 'react'
+import inputError from './Register/RegisterErrors'
+import { formatErrorMessage, formatSuccessMessage, resetInputs, validateEmail, validatePassword } from '../../tools'
 import axios from 'axios'
-
-const resetErrorMessages = () => {
-  document.getElementById('globalError').innerHTML = ''
-  document.getElementById('firstNameError').innerHTML = ''
-  document.getElementById('lastNameError').innerHTML = ''
-  document.getElementById('passwordError').innerHTML = ''
-  document.getElementById('emailError').innerHTML = ''
-}
-
-const formatInputEmptyError = (errorMessage) => `<div class="ui negative message">
-        <div class="header">Champ vide</div>
-        <p>Veuillez renseigner ${errorMessage}</p>
-      </div>`
-
-const checkError = (firstName, lastName, email, password) => {
-  if (firstName.length === 0 || lastName.length === 0 || email.length === 0 || password.length === 0) {
-    if (firstName.length === 0) {
-      document.getElementById('firstNameError').innerHTML = formatInputEmptyError('votre prénom')
-    }
-    if (lastName.length === 0) {
-      document.getElementById('lastNameError').innerHTML = formatInputEmptyError('votre nom')
-    }
-    if (email.length === 0) {
-      document.getElementById('emailError').innerHTML = formatInputEmptyError('votre email')
-    }
-    if (password.length === 0) {
-      document.getElementById('passwordError').innerHTML = formatInputEmptyError('votre mot de passe')
-    }
-    document.getElementById('globalError').innerHTML = `<div class="ui negative message"><div class="header">Tous les champs doivent être remplis pour pouvoir créer son compte</div></div>`
-    return 1
-  }
-}
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -41,8 +11,14 @@ const Register = () => {
 
   const onSubmit =  event => {
     event.preventDefault()
-    resetErrorMessages()
-    if (checkError(firstName, lastName, email, password)){
+    resetInputs(['registerFormError', 'registerFormSuccess', 'firstNameError', 'lastNameError', 'passwordError', 'emailError'])
+    if (inputError(firstName, lastName, password, email)){
+      return
+    }
+    if (!validateEmail(email)) {
+    return
+    }
+    if (!validatePassword(password)) {
       return
     }
     axios.post('http://localhost:8080/api/auth/signup',
@@ -52,22 +28,18 @@ const Register = () => {
         email,
         password
       }).then(res => {
-        document.getElementById('successMessage').innerHTML = `
-        <div class="ui success message">
-          <i class="close icon"></i>
-          <div class="header">
-            Votre compte a été créé !
-          </div>
-          <p>Vous pouvez maintenant vous connecter sur votre compte</p>
-        </div>
-        `
-        // window.location = 'http://localhost:3000/'
+        formatSuccessMessage({
+          inputName: 'registerFormSuccess',
+          header: 'Votre compte a été créé !',
+          message: 'Vous pouvez maintenant vous connecter sur votre compte'
+        })
       }).catch(err => {
         console.log("error=", err)
-        document.getElementById('passwordError').innerHTML = `<div class="ui negative message">
-          <div class="header">Erreur</div>
-          <p>Cet email est déjà utilisé</p>
-        </div>`
+        formatErrorMessage({
+          inputName: 'registerFormError',
+          header: 'Erreur',
+          message: 'Cet email est déjà utilisé'
+        })
       })
   }
 
@@ -94,17 +66,31 @@ const Register = () => {
         </div>
         <div className="field">
           <label>Email</label>
-          <input value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" type="email" />
+          <input value={email}
+            onChange={(event) => {
+              const { value } = event.target
+              validateEmail(value)
+              setEmail(value)
+            }}
+            placeholder="Email"
+            type="email" />
           <div id="emailError"></div>
         </div>
         <div className="field">
           <label>Mot de passe</label>
-          <input value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Mot de passe" type="password" />
+          <input value={password}
+            onChange={(event) => {
+              const { value } = event.target
+              validatePassword(value)
+              setPassword(value)
+            }}
+            placeholder="Mot de passe"
+            type="password" />
           <div id="passwordError"></div>
         </div>
-        <div id="globalError"></div>
-        <div id="successMessage"></div>
-        <div onClick={onSubmit} className="ui blue submit button">Submit</div>
+        <div id="registerFormError"></div>
+        <div id="registerFormSuccess"></div>
+        <div onClick={onSubmit} className="ui teal submit button">Submit</div>
       </form>
     </div>
   )
