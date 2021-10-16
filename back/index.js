@@ -4,7 +4,6 @@ require('dotenv').config()
 const helmet = require("helmet")
 
 const userRoutes = require('./app/routes/user')
-const roleRoutes = require('./app/routes/roles')
 const profileRoutes = require('./app/routes/profile')
 const feedRoutes = require('./app/routes/feed')
 
@@ -24,8 +23,6 @@ app.use((req, res, next) => {
 app.use(express.json())
 
 app.use('/api/auth', userRoutes)
-
-app.use('/api/test', roleRoutes)
 
 app.use('/api/profile', profileRoutes)
 
