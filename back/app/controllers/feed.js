@@ -31,9 +31,8 @@ exports.getAllPosts = async (req, res) => {
     await prisma.$disconnect()
   })
 
-  console.log(posts)
   if (!posts) {
-    return res.status(404).send({ message: "Profile Not found." })
+    return res.status(404).send({ message: "Posts Not found." })
   }
 
   res.status(200).send({ posts });
@@ -53,19 +52,18 @@ exports.createPost = async (req, res) => {
     await prisma.$disconnect()
   })
 
-  console.log(posts)
   if (!posts) {
-    return res.status(404).send({ message: "Profile Not found." })
+    return res.status(404).send({ message: "Prost Not Created." })
   }
 
   res.status(200).send({ posts });
 }
 
 exports.deletePost = async (req, res) => {
-  const posts = await prisma.post.delete({
+  const post = await prisma.post.delete({
     where: {
       id: Number(req.params.id),
     },
   })
-  res.status(200).send({ posts })
+  res.status(200).send({ post })
 }
