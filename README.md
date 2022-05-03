@@ -32,5 +32,5 @@ Si l'utilisateur est connecté il pourra:
 * Se déconnecter
 
 ## Lancer le projet
-Merci de regarder les Readme du [back](https://github.com/Vesta-nna/P7_anna_dominguez/blob/main/back/README.md) et du [front](https://github.com/Vesta-nna/P7_anna_dominguez/blob/main]/front/Readme.md) pour connaître l'utilisation du projet
+Merci de regarder les Readme du [back](https://github.com/Vesta-nna/P7_anna_dominguez/blob/main/back/README.md) et du [front](https://github.com/Vesta-nna/P7_anna_dominguez/tree/main/front) pour connaître l'utilisation du projet
 
